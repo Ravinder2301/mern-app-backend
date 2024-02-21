@@ -100,7 +100,7 @@ app.post("/register", async (req, res) => {
 
 // Configure cookie options
 const cookieOptions = {
-  httpOnly: true, // Helps mitigate XSS attacks
+  // httpOnly: true, // Helps mitigate XSS attacks
   secure: true, // Ensures cookies are only sent over HTTPS
   sameSite: "strict", // Protects against CSRF attacks
 };
