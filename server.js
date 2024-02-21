@@ -18,7 +18,7 @@ app.use(express.json()); // Parse JSON bodies
 // Middleware
 app.use(
   cors({
-    origin: "https://magical-heliotrope-52e745.netlify.app", // Allow requests from this origin
+    origin: "https://fancy-dodol-25f9cd.netlify.app", // Allow requests from this origin
     methods: ["POST", "GET"], // Allow specified HTTP methods
     credentials: true, // Allow sending cookies
   })
