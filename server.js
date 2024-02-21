@@ -129,11 +129,10 @@ app.post("/login", async (req, res) => {
       const token = jwt.sign({ name: user.name }, process.env.JWT_SECRET, {
         expiresIn: "1d",
       });
-      // console.log(token)
       // Set token in cookie
       res.cookie('token', token, cookieOptions);
 
-      return res.json({ Status: "Success" });
+      return res.json({ Status: "Success", token });
     } else {
       return res.json({ Error: "Password incorrect" });
     }
