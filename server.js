@@ -45,7 +45,7 @@ const verifyUser = (req, res, next) => {
     if(!token){
         return res.json({Error: "You are not authenticated"})
     }else{
-        jwt.verify(token, "jwt-secret-key", (err, decoded) => {
+        jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
             if(err) {
                 return res.json({Error: "token is not correct"})
             }else{
@@ -115,7 +115,7 @@ app.post('/login', async (req, res) => {
         const token = jwt.sign({ name: user.name }, process.env.JWT_SECRET, { expiresIn: '1d' });
         
         // Set token in cookie
-        res.cookies('token', token);
+        res.cookie('token', token);
   
         return res.json({ Status: "Success" });
       } else {
