@@ -102,7 +102,7 @@ app.post("/register", async (req, res) => {
 const cookieOptions = {
   // httpOnly: true, // Helps mitigate XSS attacks
   secure: true, // Ensures cookies are only sent over HTTPS
-  sameSite: "strict", // Protects against CSRF attacks
+  // sameSite: "strict", // Protects against CSRF attacks
 };
 
 // Route: User login
