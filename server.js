@@ -113,11 +113,11 @@ app.post('/login', async (req, res) => {
       if (passwordMatch) {
         // Generate JWT token
         const token = jwt.sign({ name: user.name }, "jwt-secret-token", { expiresIn: '1d' });
-        
+        // console.log(token)
         // Set token in cookie
         res.cookie('token', token);
   
-        return res.json({ Status: "Success" });
+        return res.json({ Status: "Success" },{ Token : token});
       } else {
         return res.json({ Error: "Password incorrect" });
       }
