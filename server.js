@@ -141,7 +141,11 @@ app.post("/login", async (req, res) => {
 // Route: User logout
 app.get("/logout", (req, res) => {
   try {
-    res.clearCookie("token"); // Clear JWT token from cookie
+    res.clearCookie("token", {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none"
+    }); // Clear JWT token from cookie
     return res.json({ Status: "Success" });
   } catch (err) {
     console.log(err);
