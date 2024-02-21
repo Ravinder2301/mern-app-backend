@@ -98,14 +98,6 @@ app.post("/register", async (req, res) => {
   }
 });
 
-// Configure cookie options
-const cookieOptions = {
-  // httpOnly: true, // Helps mitigate XSS attacks
-  httpsOnly :true,
-  // secure: true, // Ensures cookies are only sent over HTTPS
-  // sameSite: "strict", // Protects against CSRF attacks
-};
-
 // Route: User login
 app.post("/login", async (req, res) => {
   try {
@@ -130,9 +122,13 @@ app.post("/login", async (req, res) => {
         expiresIn: "1d",
       });
       // Set token in cookie
-      res.cookie('token', token, cookieOptions);
+      res.cookie('token', token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none"
+      });
 
-      return res.json({ Status: "Success", token });
+      return res.json({ Status: "Success" });
     } else {
       return res.json({ Error: "Password incorrect" });
     }
