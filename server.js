@@ -107,7 +107,7 @@ app.post('/login', async (req, res) => {
         const token = jwt.sign({ name: user.name }, process.env.JWT_SECRET, { expiresIn: '1d' });
         
         // Set token in cookie
-        res.cookie('token', token, { httpOnly: true });
+        res.cookie('token', token);
   
         return res.json({ Status: "Success" });
       } else {
