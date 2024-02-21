@@ -15,11 +15,19 @@ const URL = process.env.MONGO_URL
 
 // Middleware
 app.use(express.json()); // Parse JSON bodies
+// Middleware
 app.use(cors({
-    origin: ["https://magical-heliotrope-52e745.netlify.app"], // Allow requests from this origin
-    methods: ["POST", "GET"], // Allow specified HTTP methods
-    credentials: true // Allow sending cookies
+  origin: "https://magical-heliotrope-52e745.netlify.app", // Allow requests from this origin
+  methods: ["POST", "GET"], // Allow specified HTTP methods
+  credentials: true // Allow sending cookies
 }));
+
+// Middleware
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
+});
+
 app.use(cookieParser()); // Parse cookies
 
 // Database connection
