@@ -16,7 +16,7 @@ const URL = process.env.MONGO_URL
 // Middleware
 app.use(express.json()); // Parse JSON bodies
 app.use(cors({
-    origin: ["http://localhost:5173"], // Allow requests from this origin
+    origin: ["https://magical-heliotrope-52e745.netlify.app"], // Allow requests from this origin
     methods: ["POST", "GET"], // Allow specified HTTP methods
     credentials: true // Allow sending cookies
 }));
