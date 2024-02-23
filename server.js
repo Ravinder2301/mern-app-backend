@@ -18,7 +18,7 @@ app.use(express.json()); // Parse JSON bodies
 // Middleware
 app.use(
   cors({
-    origin: "https://frolicking-puppy-f5f76c.netlify.app/", // Allow requests from this origin
+    origin: "https://frolicking-puppy-f5f76c.netlify.app", // Allow requests from this origin
     methods: ["POST", "GET"], // Allow specified HTTP methods
     credentials: true, // Allow sending cookies
   })
