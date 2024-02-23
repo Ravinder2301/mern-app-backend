@@ -126,7 +126,8 @@ app.post("/login", async (req, res) => {
         httpOnly: true,
         secure: true,
         sameSite: "none"
-      });
+      }
+      );
 
       return res.json({ Status: "Success" });
     } else {
